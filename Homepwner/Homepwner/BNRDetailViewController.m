@@ -24,7 +24,7 @@
 - (IBAction)takePicture:(id)sender {
     UIImagePickerController * imagePick = [[UIImagePickerController alloc] init];
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        imagePick.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePick.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     } else {
         imagePick.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
@@ -54,6 +54,7 @@
     }
     
     self.dateField.text = [dateFormatter stringFromDate:kitem.dateCreated];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 -(void) viewWillDisappear:(BOOL)animated
